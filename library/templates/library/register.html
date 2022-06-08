@@ -1,0 +1,43 @@
+{% extends 'library/base.html' %}
+{% block content %}
+
+
+
+<div class="card-body">
+    <a href="{% url 'library:student-list' %}">&#8592;Back</a>
+    <form method="POST" enctype="multipart/form-data" action="">
+        {%csrf_token%}
+        
+        <label >Email<span>(Adjouter une addresse Email valide)</span></label>
+        {{form.email}} 
+        
+        <label >Nom Complet </label>
+        {{form.name}} 
+        
+        <label >{{form.username.label}} </label>
+        {{form.username}} 
+        
+        <label >Numéro étudiant</label>
+        {{form.enrollment_no}} 
+        
+        <label >Mot de passe <span>(8 characters & alphanumeric)</span></label> 
+        {{form.password1}}  
+        
+        <label >Confirmation Mot de passe</label> 
+        {{form.password2}}
+
+        <label >Photo de profil</label> 
+        {{form.pic}}
+
+        <label> <input class="button" type="submit" value="Submit"></label>
+        
+        
+        </form>
+       
+</div>
+
+
+
+
+{% endblock content %}
+

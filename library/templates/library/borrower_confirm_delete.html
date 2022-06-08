@@ -1,0 +1,20 @@
+
+{% extends 'library/base.html' %}
+{% block content %}
+
+
+<div >
+    <a href="{% url 'library:borrower-list' %}">&#8592;Back</a>
+</div>
+
+<div >
+    <form method = "POSt">
+        {%csrf_token%}
+        <p>{{borrower|title}}</p>
+        <input class="button" type="submit" value="Supprimer">
+        </form>
+</div>
+
+
+
+{% endblock content %}

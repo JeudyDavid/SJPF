@@ -1,0 +1,29 @@
+{% extends "library/base.html" %} {% block content %}
+
+<table class="table table-sm table-dark"  style="margin: auto;">
+  <thead>
+    <tr>
+      <th scope="col">SN</th>
+      <th scope="col">Nom de l'etudiant</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  {% if students %}
+  <tbody>
+    {% for student in students %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{student.name}}</td>
+      <td>{{student.email}}</td>
+      <td><a href="{% url 'library:student-update' student.id%}" class="btn btn-success">Mise a jour</a>  <a href="{% url 'library:student-delete' student.id%}" class="btn btn-danger">Supprimer</a>  <a href="{% url 'library:student-detail' student.id%}" class="btn btn-warning">Profil</a> </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% else %}
+  <tbody><tr><td colspan="6"> Pas d'etudiants.</td></tr></tbody>
+  {% endif %}
+</table>
+{% endblock %}
+
+

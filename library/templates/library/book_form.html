@@ -1,0 +1,42 @@
+{% extends 'library/base.html' %}
+{% block content %}
+
+
+
+
+<div class="card-body " >
+    <a href="{% url 'library:book-list' %}">&#8592;Back</a>
+    <form method="POST" enctype="multipart/form-data"action="">
+    {%csrf_token%}
+    <label >Titre </label>
+    {{form.title}} 
+    
+    <label >Auteur</label>
+    {{form.author}} 
+    <label >Sommaire </label>
+    {{form.summary}}
+    
+    <label >ISBN </label>
+    {{form.isbn}} 
+    
+    <label >Genre</label>
+    {{form.genre}} 
+    
+    <label >language </label> 
+    {{form.language}}  
+    
+    <label >Nombre de copies</label> 
+    {{form.total_copies}}
+    <label >copies disponible</label> 
+    {{form.available_copies}}
+    <label >Photo de couverture</label> 
+    {{form.pic}}
+
+    <label> <input class="button" type="submit" value="Submit"></label>
+    
+    </form>
+</div>
+
+
+
+{% endblock content %}
